@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+  :root {
+    --radius: 0.5rem
+  }
+}
+
+
+@layer components {
+  .section-title {
+    @apply my-3 text-xl font-semibold text-gray-800; 
+  }
+  .container {
+    @apply max-w-7xl self-center;
+  }
+}
