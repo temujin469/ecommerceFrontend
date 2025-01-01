@@ -13,7 +13,7 @@ function BannerItem({ sm = false, bg, title }) {
     <div
       className={`tp-banner-item ${
         sm ? "tp-banner-item-sm" : ""
-      } tp-banner-height p-relative mb-30 z-index-1 fix`}
+      } tp-banner-height p-relative z-index-1 fix`}
     >
       <div
         className="tp-banner-thumb include-bg transition-3"
@@ -38,10 +38,10 @@ function BannerItem({ sm = false, bg, title }) {
 
 const BannerArea = () => {
   return (
-    <section className="tp-banner-area pb-70">
+    <section className="tp-banner-area pb-10">
       <div className="container">
-        <div className="row">
-          <div className="col-xl-8 col-lg-7">
+        <div className="grid grid-cols-12 gap-3">
+          <div className="col-span-12 lg:col-span-7 xl:col-span-8">
             <BannerItem
               bg={banner_1}
               title={
@@ -51,7 +51,7 @@ const BannerArea = () => {
               }
             />
           </div>
-          <div className="col-xl-4 col-lg-5">
+          <div className="col-span-12 lg:col-span-5 xl:col-span-4">
             <BannerItem
               sm={true}
               bg={banner_2}

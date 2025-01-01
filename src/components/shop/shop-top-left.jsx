@@ -9,7 +9,7 @@ const ShopTopLeft = ({total,showing=9}) => {
           <ul className="nav nav-tabs" id="productTab" role="tablist">
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link active"
+                className="nav-link active rounded-lg flex justify-center items-center"
                 id="grid-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#grid-tab-pane"
@@ -24,7 +24,7 @@ const ShopTopLeft = ({total,showing=9}) => {
             </li>
             <li className="nav-item" role="presentation">
               <button
-                className="nav-link"
+                className="nav-link  rounded-lg flex justify-center items-center"
                 id="list-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#list-tab-pane"

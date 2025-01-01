@@ -162,7 +162,8 @@
                         margin: 3px 0;
                         background-color: rgba($color: #fff, $alpha: .2);                    
                         &.swiper-pagination-bullet-active{
-                            background-color: var(--tp-common-white);
+                            background-color: var(--tp-theme-primary);
+                           
                         }
                     }
                 }

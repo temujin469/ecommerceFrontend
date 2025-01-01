@@ -33,7 +33,7 @@ const Pagination = ({
           <li>
             <button
               onClick={() => setPage(currPage - 1)}
-              className={`tp-pagination-prev prev page-numbers ${
+              className={`tp-pagination-prev prev page-numbers flex justify-center items-center rounded-full ${
                 currPage === 1 && "disabled"
               }`}
             >
@@ -43,14 +43,14 @@ const Pagination = ({
 
           {Array.from({ length: totalPage }, (_, i) => i + 1).map((n) => (
             <li key={n} onClick={() => setPage(n)}>
-              <span className={`${currPage === n ? "current" : ""}`}>{n}</span>
+              <span className={`${currPage === n ? "current rounded-full" : "rounded-full"}`}>{n}</span>
             </li>
           ))}
 
           <li>
             <button
               onClick={() => setPage(currPage + 1)}
-              className={`next page-numbers ${
+              className={`next page-numbers flex justify-center items-center rounded-full ${
                 currPage === totalPage ? "disabled" : ""
               }`}
             >

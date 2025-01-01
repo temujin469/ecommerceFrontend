@@ -47,46 +47,46 @@ const ProductArea = () => {
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data;
     content = product_items.map((prd, i) => (
-      <div key={i} className="col-xl-3 col-lg-3 col-sm-6">
+      <div key={i} className="col-span-1">
         <ProductItem product={prd} />
       </div>
     ));
   }
   return (
-    <section className="tp-product-area pb-55">
+    <section className="tp-product-area pb-10">
       <div className="container">
-        <div className="row align-items-end">
-          <div className="col-xl-5 col-lg-6 col-md-5">
-            <div className="tp-section-title-wrapper mb-40">
-              <h3 className="tp-section-title">
-                Тренд бүтээгдэхүүн
+        <div className="flex justify-between mb-5">
+          <div className="hidden md:block">
+            <h3 className="text-3xl text-gray-600 font-medium">
+              Тренд бүтээгдэхүүн
+              <div className=" text-primary">
                 <ShapeLine />
-              </h3>
-            </div>
+              </div>
+            </h3>
           </div>
-          <div className="col-xl-7 col-lg-6 col-md-7">
-            <div className="tp-product-tab tp-product-tab-border mb-45 tp-tab d-flex justify-content-md-end">
-              <ul className="nav nav-tabs justify-content-sm-end">
-                {tabs.map((tab, i) => (
-                  <li key={i} className="nav-item">
-                    <button
-                      onClick={() => handleActiveTab(tab.query)}
-                      className={`nav-link text-capitalize ${
-                        activeTab === tab.query ? "active" : ""
-                      }`}
-                    >
-                      {tab.label.split("-").join(" ")}
-                      <span className="tp-product-tab-line">
-                        <TabLine />
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="md:max-w-[400px] w-full">
+            <ul className="flex flex-row gap-3 w-full ">
+              {tabs.map((tab, i) => (
+                <li key={i} className="w-full flex-1">
+                  <button
+                    onClick={() => handleActiveTab(tab.query)}
+                    className={`px-4 w-full hover:bg-primary hover:text-white py-3 rounded-full uppercase ${
+                      activeTab === tab.query ? "bg-primary text-white" : ""
+                    }`}
+                  >
+                    {tab.label.split("-").join(" ")}
+                    <span className="tp-product-tab-line">
+                      <TabLine />
+                    </span>
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="row">{content}</div>
+        <div className="product-grid">
+          {content}
+        </div>
       </div>
     </section>
   );

@@ -1,12 +1,14 @@
-'use client';
+"use client";
 import { useState } from "react";
 // internal
 import { Search } from "@/svg";
-import NiceSelect from "@/ui/nice-select";
+// import NiceSelect from "@/ui/nice-select";
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
+import { Button } from "../ui/button";
 
 const HeaderSearchForm = () => {
-  const { setSearchText, setCategory, handleSubmit, searchText } = useSearchFormSubmit();
+  const { setSearchText, setCategory, handleSubmit, searchText } =
+    useSearchFormSubmit();
 
   // selectHandle
   const selectCategoryHandle = (e) => {
@@ -15,8 +17,8 @@ const HeaderSearchForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="tp-header-search-wrapper d-flex align-items-center">
-        <div className="tp-header-search-box">
+      <div className="border-2 border-primary flex items-center p-1 rounded-full overflow-hidden">
+        <div className="tp-header-search-box w-full">
           <input
             onChange={(e) => setSearchText(e.target.value)}
             value={searchText}
@@ -38,11 +40,9 @@ const HeaderSearchForm = () => {
             name="Select Category"
           />
         </div> */}
-        <div className="tp-header-search-btn">
-          <button type="submit">
-            <Search />
-          </button>
-        </div>
+        <Button type="submit" className="bg-primary w-[45px] h-[45px] rounded-full">
+          <Search />
+        </Button>
       </div>
     </form>
   );

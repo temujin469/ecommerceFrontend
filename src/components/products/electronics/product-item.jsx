@@ -12,8 +12,18 @@ import { add_cart_product } from "@/redux/features/cartSlice";
 import { add_to_wishlist } from "@/redux/features/wishlist-slice";
 
 const ProductItem = ({ product, offer_style = false }) => {
-  const { _id, img, category, title, reviews, price, discount,status,offerDate } = product || {};
-  console.log(status)
+  const {
+    _id,
+    img,
+    category,
+    title,
+    reviews,
+    price,
+    discount,
+    status,
+    offerDate,
+  } = product || {};
+  console.log(status);
   const { cart_products } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
   const isAddedToCart = cart_products.some((prd) => prd._id === _id);
@@ -43,22 +53,32 @@ const ProductItem = ({ product, offer_style = false }) => {
   return (
     <>
       <div
-        className={`${offer_style ? "tp-product-offer-item" : "mb-25"
-          } tp-product-item transition-3`}
+        className={`group ${
+          offer_style ? "tp-product-offer-item" : ""
+        } tp-product-item transition-3`}
       >
-        <div className="tp-product-thumb p-relative fix">
+        <div className="tp-product-thumb relative bg-gray-100">
+          <div className="bg-primary group-hover:blur-md transition-transform animate-in duration-300 w-[70%] aspect-square z-[1] absolute top-[50%] translate-y-[-50%] left-[50%] translate-x-[-50%] rounded-full"></div>
+          {discount > 0 ? (
+            <span className="text-sm z-[2] min-w-[33px] text-center bg-secondary px-1 rounded-full text-white absolute top-3 left-3">
+              {discount}%
+            </span>
+          ) : null}
           <Link href={`/product-details/${_id}`}>
             <Image
               src={img}
               width="0"
               height="0"
               sizes="100vw"
-              style={{ width: '100%', height: 'auto' }}
+              style={{ width: "100%", height: "auto" }}
+              className="aspect-square object-cover z-[1] relative"
               alt="product-electronic"
             />
 
             <div className="tp-product-badge">
-              {status === 'out-of-stock' && <span className="product-hot">Дууссан</span>}
+              {status === "out-of-stock" && (
+                <span className="product-hot">Дууссан</span>
+              )}
             </div>
           </Link>
 
@@ -68,16 +88,21 @@ const ProductItem = ({ product, offer_style = false }) => {
               {isAddedToCart ? (
                 <Link
                   href="/cart"
-                  className={`tp-product-action-btn ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
+                  className={`tp-product-action-btn ${
+                    isAddedToCart ? "active" : ""
+                  } tp-product-add-cart-btn`}
                 >
-                  <Cart /> <span className="tp-product-tooltip">Сагсанд харах</span>
+                  <Cart />{" "}
+                  <span className="tp-product-tooltip">Сагсанд харах</span>
                 </Link>
               ) : (
                 <button
                   onClick={() => handleAddProduct(product)}
                   type="button"
-                  className={`tp-product-action-btn ${isAddedToCart ? 'active' : ''} tp-product-add-cart-btn`}
-                  disabled={status === 'out-of-stock'}
+                  className={`tp-product-action-btn ${
+                    isAddedToCart ? "active" : ""
+                  } tp-product-add-cart-btn`}
+                  disabled={status === "out-of-stock"}
                 >
                   <Cart />
 
@@ -95,9 +120,11 @@ const ProductItem = ({ product, offer_style = false }) => {
               </button>
               <button
                 type="button"
-                className={`tp-product-action-btn ${isAddedToWishlist ? 'active' : ''} tp-product-add-to-wishlist-btn`}
+                className={`tp-product-action-btn ${
+                  isAddedToWishlist ? "active" : ""
+                } tp-product-add-to-wishlist-btn`}
                 onClick={() => handleWishlistProduct(product)}
-                disabled={status === 'out-of-stock'}
+                disabled={status === "out-of-stock"}
               >
                 <Wishlist />
                 <span className="tp-product-tooltip">Дуртай</span>
@@ -106,14 +133,14 @@ const ProductItem = ({ product, offer_style = false }) => {
           </div>
         </div>
         {/*  product content */}
-        <div className="tp-product-content">
-          <div className="tp-product-category">
+        <div className="p-3">
+          <div className="text-[10px] uppercase">
             <a href="#">{category?.name}</a>
           </div>
-          <h3 className="tp-product-title">
+          <h3 className="mb-1 text-[14px] font-medium text-nowrap text-ellipsis overflow-hidden">
             <Link href={`/product-details/${_id}`}>{title}</Link>
           </h3>
-          <div className="tp-product-rating d-flex align-items-center">
+          {/* <div className="tp-product-rating d-flex align-items-center">
             <div className="tp-product-rating-icon">
               <Rating
                 allowFraction
@@ -123,45 +150,52 @@ const ProductItem = ({ product, offer_style = false }) => {
               />
             </div>
             <div className="tp-product-rating-text">
-              {/* <span>
+              <span>
                 ({reviews && reviews.length > 0 ? reviews.length : 0} Review)
-              </span> */}
+              </span>
             </div>
-          </div>
+          </div> */}
           <div className="tp-product-price-wrapper">
             {discount > 0 ? (
               <>
-                <span className="tp-product-price old-price">{price}₮</span>
-                <span className="tp-product-price new-price">
-                  {" "} {(Number(price) - (Number(price) * Number(discount)) / 100).toFixed(2)}₮
+                <span className="old-price font-medium text-[12px] text-gray-500 line-through">
+                  {price}₮
+                </span>
+                <span className="font-medium text-primary">
+                  {" "}
+                  {(
+                    Number(price) -
+                    (Number(price) * Number(discount)) / 100
+                  ).toFixed(2)}
+                  ₮
                 </span>
               </>
             ) : (
-              <span className="tp-product-price new-price">{parseFloat(price).toFixed(2)}₮</span>
+              <span className="font-medium text-primary">
+                {parseFloat(price).toFixed(2)}₮
+              </span>
             )}
           </div>
           {offer_style && (
-            <div className="tp-product-countdown">
-              <div className="tp-product-countdown-inner">
-                {dayjs().isAfter(offerDate?.endDate) ? (
-                  <ul>
-                    <li>
-                      <span>{0}</span> Өдөр
-                    </li>
-                    <li>
-                      <span>{0}</span> Цаг
-                    </li>
-                    <li>
-                      <span>{0}</span> Мин
-                    </li>
-                    <li>
-                      <span>{0}</span> Сэк
-                    </li>
-                  </ul>
-                ) : (
-                  <Timer expiryTimestamp={new Date(offerDate?.endDate)} />
-                )}
-              </div>
+            <div className="">
+              {dayjs().isAfter(offerDate?.endDate) ? (
+                 <ul className="w-full flex justify-between gap-1 text-white">
+                 <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+                   <span className="text-[13px] sm:text-2xl leading-[13px]">{0}</span> Өдөр
+                 </li>
+                 <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+                   <span className="text-[13px] sm:text-2xl leading-[13px]">{0}</span> Цаг
+                 </li>
+                 <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+                   <span className="text-[13px] sm:text-2xl leading-[13px]">{0}</span> Мин
+                 </li>
+                 <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+                   <span className="text-[13px] sm:text-2xl leading-[13px]">{0}</span> Сэк
+                 </li>
+               </ul>
+              ) : (
+                <Timer expiryTimestamp={new Date(offerDate?.endDate)} />
+              )}
             </div>
           )}
         </div>

@@ -199,10 +199,10 @@ const ShopArea = ({shop_right=false,hidden_sidebar=false}) => {
 
 
   return (
-    <>
+    <div className="pt-3">
       {content}
       <MobileNav/>
-    </>
+    </div>
   );
 };
 

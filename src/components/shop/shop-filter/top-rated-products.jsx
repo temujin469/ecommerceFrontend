@@ -34,9 +34,9 @@ const TopRatedProducts = () => {
         </div>
         <div className="tp-shop-widget-product-content">
           <div className="tp-shop-widget-product-rating-wrapper d-flex align-items-center">
-            <div className="tp-shop-widget-product-rating">
+            {/* <div className="tp-shop-widget-product-rating">
               <Rating allowFraction size={16} initialValue={item.rating} readonly={true} />
-            </div>
+            </div> */}
             {/* <div className="tp-shop-widget-product-rating-number">
               <span>({item.rating})</span>
             </div> */}

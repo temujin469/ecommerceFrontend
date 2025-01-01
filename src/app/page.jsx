@@ -2,7 +2,7 @@ import Wrapper from "@/layout/wrapper";
 import Header from "@/layout/headers/header";
 import HomeHeroSlider from "@/components/hero-banner/home-hero-slider";
 import BannerArea from "@/components/banner/banner-area";
-import BlogArea from "@/components/blog/electronic/blog-area";
+// import BlogArea from "@/components/blog/electronic/blog-area";
 import ElectronicCategory from "@/components/categories/electronic-category";
 import CtaArea from "@/components/cta/cta-area";
 import FeatureArea from "@/components/features/feature-area";
@@ -12,7 +12,7 @@ import OfferProducts from "@/components/products/electronics/offer-products";
 import ProductArea from "@/components/products/electronics/product-area";
 import ProductBanner from "@/components/products/electronics/product-banner";
 import ProductGadgetArea from "@/components/products/electronics/product-gadget-area";
-import ProductSmArea from "@/components/products/electronics/product-sm-area";
+// import ProductSmArea from "@/components/products/electronics/product-sm-area";
 import Footer from "@/layout/footers/footer";
 import MobileNav from "@/components/common/mobile-navbar";
 
@@ -30,7 +30,7 @@ export default function HomePage() {
       <ProductGadgetArea/>
       <ProductBanner/>
        <NewArrivals/>
-      <ProductSmArea/>
+      {/* <ProductSmArea/> */}
       {/* <BlogArea/> */}
       <InstagramArea/>
       <CtaArea/>

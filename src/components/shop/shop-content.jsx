@@ -1,7 +1,6 @@
 'use client'
 import React,{ useState} from 'react';
 import Pagination from "@/ui/Pagination";
-import ProductItem from "../products/fashion/product-item";
 import CategoryFilter from "./shop-filter/category-filter";
 import ColorFilter from "./shop-filter/color-filter";
 import PriceFilter from "./shop-filter/price-filter";
@@ -12,6 +11,7 @@ import ShopListItem from "./shop-list-item";
 import ShopTopLeft from "./shop-top-left";
 import ShopTopRight from "./shop-top-right";
 import ResetButton from "./shop-filter/reset-button";
+import ProductItem from '../products/electronics/product-item';
 
 const ShopContent = ({all_products,products,otherProps,shop_right,hidden_sidebar}) => {
   const {priceFilterValues,selectHandleFilter,currPage,setCurrPage} = otherProps;
@@ -32,7 +32,7 @@ const ShopContent = ({all_products,products,otherProps,shop_right,hidden_sidebar
   }, 0);
   return (
     <>
-     <section className="tp-shop-area pb-80">
+     <section className="tp-shop-area pb-20">
         <div className="container">
           <div className="row">
             {!shop_right && !hidden_sidebar && (
@@ -61,9 +61,9 @@ const ShopContent = ({all_products,products,otherProps,shop_right,hidden_sidebar
 
             <div className={`${hidden_sidebar ? 'col-xl-12 col-lg-12' : 'col-xl-9 col-lg-8'}`}>
               <div className="tp-shop-main-wrapper">
-                <div className="tp-shop-top mb-45">
-                  <div className="row">
-                    <div className="col-xl-6">
+                <div className="tp-shop-top mb-5">
+                  <div className="grid grid-cols-12">
+                    <div className="col-span-12 xl:col-span-6">
                       <ShopTopLeft
                         showing={
                           products.length === 0
@@ -76,7 +76,7 @@ const ShopContent = ({all_products,products,otherProps,shop_right,hidden_sidebar
                         total={all_products.length}
                       />
                     </div>
-                    <div className="col-xl-6">
+                    <div className="col-span-12 xl:col-span-6">
                       <ShopTopRight selectHandleFilter={selectHandleFilter} />
                     </div>
                   </div>
@@ -92,13 +92,13 @@ const ShopContent = ({all_products,products,otherProps,shop_right,hidden_sidebar
                         aria-labelledby="grid-tab"
                         tabIndex="0"
                       >
-                        <div className="row">
+                        <div className="grid grid-cols-12 gap-3">
                           {filteredRows
                             .slice(pageStart, pageStart + countOfPage)
                             .map((item,i) => (
                               <div
                                 key={i}
-                                className="col-xl-4 col-md-6 col-sm-6"
+                                className="col-span-6 xl:col-span-3 md:col-span-3 sm:col-span-6"
                               >
                                 <ProductItem product={item} />
                               </div>
@@ -128,7 +128,7 @@ const ShopContent = ({all_products,products,otherProps,shop_right,hidden_sidebar
                   </div>
                 )}
                 {products.length > 0 && (
-                  <div className="tp-shop-pagination mt-20">
+                  <div className="tp-shop-pagination mt-10">
                     <div className="tp-pagination d-flex justify-content-center">
                       <Pagination
                         items={products}

@@ -13,7 +13,7 @@ import { Scrollbar, Navigation, Autoplay } from "swiper/modules";
 // slider setting
 const slider_setting = {
   slidesPerView: 5,
-  spaceBetween:12,
+  spaceBetween: 12,
   navigation: {
     nextEl: ".tp-related-slider-button-next",
     prevEl: ".tp-related-slider-button-prev",
@@ -82,21 +82,23 @@ const ElectronicCategory = () => {
         {category_items?.map((item) => (
           <SwiperSlide key={item._id}>
             <div className="tp-product-category-item text-center mb-30">
-              <div className="tp-product-category-thumb fix">
-                <a
-                  className="cursor-pointer"
-                  onClick={() => handleCategoryRoute(item.parent)}
-                >
-                  <Image
-                    src={item.img}
-                    alt="product-category"
-                    width={76}
-                    height={98}
-                  />
-                </a>
+              <div className="tp-product-category-thumb flex justify-center">
+                <div className="p-2 border-2 border-primary w-fit rounded-full">
+                  <a
+                    className="cursor-pointer bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white  to-primary "
+                    onClick={() => handleCategoryRoute(item.parent)}
+                  >
+                    <Image
+                      src={item.img}
+                      alt="product-category"
+                      width={76}
+                      height={98}
+                    />
+                  </a>
+                </div>
               </div>
               <div className="tp-product-category-content">
-                <h3 className="tp-product-category-title">
+                <h3 className="tp-product-category-title text-center">
                   <a
                     className="cursor-pointer"
                     onClick={() => handleCategoryRoute(item.parent)}
@@ -113,10 +115,8 @@ const ElectronicCategory = () => {
     );
   }
   return (
-    <section className="tp-product-category pt-30">
-      <div className="container">
-          {content}
-      </div>
+    <section className="tp-product-category pt-30 mt-[-32px] border-t md:border-t-0 md:mt-0 rounded-t-4xl relative md:static bg-white z-[2]">
+      <div className="container">{content}</div>
     </section>
   );
 };

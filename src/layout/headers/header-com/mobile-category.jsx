@@ -62,28 +62,28 @@ const MobileCategory = ({ isCategoryActive, categoryType }) => {
     const category_items = categories.result;
     content = category_items.map((item) => (
       <li className="has-dropdown" key={item._id}>
-        <a className="cursor-pointer">
+        <a className="cursor-pointer text-white hover:text-secondary">
           {item.img && (
             <span>
-              <Image src={item.img} alt="cate img" width={50} height={50} />
+              <Image src={item.img} alt="cate img" width={50} height={50} className="object-contain bg-white p-1 rounded-sm" />
             </span>
           )}
           {item.parent}
           {item.children && (
-            <button onClick={()=> handleOpenSubMenu(item.parent)} className="dropdown-toggle-btn">
+            <button onClick={()=> handleOpenSubMenu(item.parent)} className="dropdown-toggle-btn rounded-full bg-white">
               <i className="fa-regular fa-angle-right"></i>
             </button>
           )}
         </a>
 
         {item.children && (
-          <ul className={`tp-submenu ${isActiveSubMenu === item.parent ? 'active':''}`}>
+          <ul className={`tp-submenu ${isActiveSubMenu === item.parent ? 'active pt-0':''}`}>
             {item.children.map((child, i) => (
               <li
                 key={i}
                 onClick={() => handleCategoryRoute(child, "children")}
               >
-                <a className="cursor-pointer">{child}</a>
+                <a className="cursor-pointer text-white">{child}</a>
               </li>
             ))}
           </ul>
@@ -91,7 +91,7 @@ const MobileCategory = ({ isCategoryActive, categoryType }) => {
       </li>
     ));
   }
-  return <ul className={isCategoryActive ? "active" : ""}>{content}</ul>;
+  return <ul className={isCategoryActive ? "active pt-0 text-white" : ""}>{content}</ul>;
 };
 
 export default MobileCategory;

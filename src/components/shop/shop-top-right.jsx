@@ -2,39 +2,45 @@ import React from "react";
 import { useDispatch } from "react-redux";
 // internal
 import { Filter } from "@/svg";
-import NiceSelect from "@/ui/nice-select";
 import { handleFilterSidebarOpen } from "@/redux/features/shop-filter-slice";
+import { Button } from "../ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
 const ShopTopRight = ({ selectHandleFilter }) => {
   const dispatch = useDispatch();
   return (
-    <div className="tp-shop-top-right d-sm-flex align-items-center justify-content-xl-end">
-      <div className="tp-shop-top-select">
-        <NiceSelect
-          options={[
-            { value: "Default Sorting", text: "Үндсэн эрэмбэлэлт" },
-            { value: "Low to High", text: "Үнэ багаас их" },
-            { value: "High to Low", text: "Үнэ ихээс бага" },
-            { value: "New Added", text: "Шинээр нэмэгдсэн" },
-            { value: "On Sale", text: "Хямдралтай" },
-          ]}
-          defaultCurrent={0}
-          onChange={selectHandleFilter}
-          name="Default Sorting"
-          className="w-100"
-        />
+    <div className="pt-5 flex items-center justify-between gap-3">
+      <div className="w-full">
+        <Select onOpenChange={selectHandleFilter} defaultCurrent={0}>
+          <SelectTrigger className="min-w-[130px] h-[50px] outline-none">
+            <SelectValue placeholder="Theme" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="efault Sorting">Үндсэн эрэмбэлэлт</SelectItem>
+            <SelectItem value="Low to High">Үнэ багаас их</SelectItem>
+            <SelectItem value="High to Low">Үнэ ихээс бага</SelectItem>
+            <SelectItem value="New Added">Шинээр нэмэгдсэн</SelectItem>
+            <SelectItem value="On Sale">Хямдралтай</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
-      <div className="tp-shop-top-filter">
-        <button
+      <div className=" w-full">
+        <Button
           onClick={() => dispatch(handleFilterSidebarOpen())}
           type="button"
-          className="tp-filter-btn w-100"
+          className=" h-[50px] w-100 bg-primary"
         >
           <span>
             <Filter />
           </span>{" "}
           Шүүлтүүр
-        </button>
+        </Button>
       </div>
     </div>
   );

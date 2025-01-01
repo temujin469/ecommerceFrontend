@@ -27,45 +27,45 @@ const ProductSmArea = () => {
     const discount_prd = products.data.filter(p => p.discount > 0).slice(0, 3);
     const featured_prd = products.data.filter(p => p.featured).slice(0, 3);
     const selling_prd = products.data.slice().sort((a, b) => b.sellCount - a.sellCount).slice(0, 3);
-    content = <div className="row">
-      <div className="col-xl-4 col-md-6">
-        <div className="tp-product-sm-list mb-50">
-          <div className="tp-section-title-wrapper mb-40">
+    content = <div className="grid gap-10 grid-cols-12 mb-10">
+      <div className="col-span-12 md:col-span-6 xl:col-span-4">
+        <div className="tp-product-sm-list">
+          <div className="tp-section-title-wrapper mb-5">
             <h3 className="tp-section-title tp-section-title-sm">Хямдралтай бүтээгдэхүүн
               <ShapeLineSm />
             </h3>
           </div>
-          <div className="tp-product-sm-wrapper mr-20">
+          <div className="tp-product-sm-wrapper">
             {discount_prd.map(item => (
               <ProductSmItem key={item._id} product={item} />
             ))}
           </div>
         </div>
       </div>
-      <div className="col-xl-4 col-md-6">
-        <div className="tp-product-sm-list mb-50">
-          <div className="tp-section-title-wrapper mb-40">
+      <div className="col-span-12 md:col-span-6 xl:col-span-4">
+        <div className="tp-product-sm-list">
+          <div className="tp-section-title-wrapper mb-5">
             <h3 className="tp-section-title tp-section-title-sm">Онцлох бүтээгдэхүүн
               <ShapeLineSm />
             </h3>
           </div>
 
-          <div className="tp-product-sm-wrapper mr-20">
+          <div className="tp-product-sm-wrapper">
             {featured_prd.map(item => (
               <ProductSmItem key={item._id} product={item} />
             ))}
           </div>
         </div>
       </div>
-      <div className="col-xl-4 col-md-6">
-        <div className="tp-product-sm-list mb-50">
-          <div className="tp-section-title-wrapper mb-40">
+      <div className="col-span-12 md:col-span-6 xl:col-span-4">
+        <div className="tp-product-sm-list">
+          <div className="tp-section-title-wrapper mb-5">
             <h3 className="tp-section-title tp-section-title-sm">Бусад бүтээгдэхүүн
               <ShapeLineSm />
             </h3>
           </div>
 
-          <div className="tp-product-sm-wrapper mr-20">
+          <div className="tp-product-sm-wrapper">
             {selling_prd.map(item => (
               <ProductSmItem key={item._id} product={item} />
             ))}

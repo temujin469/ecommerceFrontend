@@ -8,6 +8,7 @@ import contact_img from '@assets/img/icon/contact.png';
 import language_img from '@assets/img/icon/language-flag.png';
 import MobileCategory from '@/layout/headers/header-com/mobile-category';
 import MobileMenus from './mobile-menus';
+import { Button } from '../ui/button';
 
 const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen,categoryType = "electronics" }) => {
   const [isCategoryActive, setIsCategoryActive] = useState(false);
@@ -29,11 +30,11 @@ const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen,categoryType = "electronic
       <div className={`offcanvas__area offcanvas__radius ${isOffCanvasOpen ? "offcanvas-opened" : ""}`}>
         <div className="offcanvas__wrapper">
           <div className="offcanvas__close">
-            <button onClick={() => setIsCanvasOpen(false)} className="offcanvas__close-btn offcanvas-close-btn">
+            <button onClick={() => setIsCanvasOpen(false)} className="offcanvas__close-btn offcanvas-close-btn rounded-full flex justify-center items-center text-gray-500">
               <CloseTwo />
             </button>
           </div>
-          <div className="offcanvas__content">
+          <div className="offcanvas__content pb-0">
             <div className="offcanvas__top mb-70 d-flex justify-content-between align-items-center">
               <div className="offcanvas__logo logo">
                 <Link href="/">
@@ -41,18 +42,18 @@ const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen,categoryType = "electronic
                 </Link>
               </div>
             </div>
-            <div className="offcanvas__category pb-40">
-              <button onClick={() => setIsCategoryActive(!isCategoryActive)} className="tp-offcanvas-category-toggle">
+            <div className="offcanvas__category border  rounded-[25px] bg-primary">
+              <button onClick={() => setIsCategoryActive(!isCategoryActive)} className="tp-offcanvas-category-toggle rounded-[25px] h-[50px]">
                 <i className="fa-solid fa-bars"></i>
                 Ангилалууд
               </button>
               <div className="tp-category-mobile-menu">
-                <nav className={`tp-category-menu-content ${isCategoryActive ? "active" : ""}`}>
+                <nav className={`tp-category-menu-content ${isCategoryActive ? "active py-3" : ""}`}>
                   <MobileCategory categoryType={categoryType} isCategoryActive={isCategoryActive} />
                 </nav>
               </div>
             </div>
-            <div className="tp-main-menu-mobile fix d-lg-none mb-40">
+            <div className="tp-main-menu-mobile fix d-lg-none">
               <MobileMenus />
             </div>
 
@@ -68,9 +69,9 @@ const OffCanvas = ({ isOffCanvasOpen, setIsCanvasOpen,categoryType = "electronic
                 </h3>
               </div>
             </div> */}
-            <div className="offcanvas__btn">
-              <Link href="/contact" className="tp-btn-2 tp-btn-border-2">Холбоо барих</Link>
-            </div>
+            <Button className="rounded-full bg-primary w-full h-[50px] mt-3">
+              <Link href="/contact">Холбоо барих</Link>
+            </Button>
           </div>
           {/* <div className="offcanvas__bottom">
             <div className="offcanvas__footer d-flex align-items-center justify-content-between">

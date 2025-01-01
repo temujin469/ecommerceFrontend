@@ -6,22 +6,29 @@ export const feature_data = [
   {
     icon: <Delivery />,
     title: 'Үнэгүй хүргэлт',
-    subtitle: 'Бүх барааны захиалга'
+    subtitle: 'Бүх барааны захиалга',
+    bg:"#f79f79",
   },
   {
     icon: <Refund />,
     title: 'Баталгаа',
-    subtitle: '1 жилийн баталгаа'
+    subtitle: '1 жилийн баталгаа',
+    bg:"#f7d08a",
+
   },
   {
     icon: <Discount />,
     title: 'Хөнгөлөлт',
-    subtitle: '3 caяаас дээш захиалга'
+    subtitle: '3 caяаас дээш захиалга',
+    bg:"#e3f09b",
+
   },
   {
     icon: <Support />,
     title: '24/7 дэмжлэг',
-    subtitle: 'Бидэнтэй холбогдоорой'
+    subtitle: 'Бидэнтэй холбогдоорой',
+    bg:"#aef78e",
+
   },
 ];
 

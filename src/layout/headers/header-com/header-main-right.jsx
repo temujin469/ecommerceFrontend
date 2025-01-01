@@ -17,8 +17,8 @@ const HeaderMainRight = ({ setIsCanvasOpen }) => {
     <div className="tp-header-main-right d-flex align-items-center justify-content-end">
       <div className="tp-header-login d-none d-lg-block">
         <div className="d-flex align-items-center">
-          <div className="tp-header-login-icon">
-            <span>
+          <div className="tp-header-login-icon flex items-center">
+            <span className="flex justify-center items-center border-primary">
               {userInfo?.imageURL ? (
                 <Link href="/profile">
                   <Image

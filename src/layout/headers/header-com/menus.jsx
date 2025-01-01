@@ -9,7 +9,7 @@ const Menus = () => {
     <ul>
       {menu_data.map((menu) =>
         menu.homes ? (
-          <li key={menu.id} className="has-dropdown has-mega-menu">
+          <li key={menu.id} className="has-dropdown has-mega-menu ">
             <Link href={menu.link}>{menu.title}</Link>
             <div className="home-menu tp-submenu tp-mega-menu">
               <div className="row row-cols-1 row-cols-lg-4 row-cols-xl-4">
@@ -63,7 +63,7 @@ const Menus = () => {
           </li>
         ) : (
           <li key={menu.id}>
-            <Link href={menu.link}>{menu.title}</Link>
+            <Link className="font-semibold text-gray-700" href={menu.link}>{menu.title}</Link>
           </li>
         )
       )}

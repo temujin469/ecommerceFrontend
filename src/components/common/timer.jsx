@@ -4,18 +4,18 @@ import { useTimer } from "react-timer-hook";
 const Timer = ({ expiryTimestamp }) => {
   const { seconds, minutes, hours, days } = useTimer({ expiryTimestamp });
   return (
-    <ul>
-      <li>
-        <span>{days}</span> Day
+    <ul className="w-full flex justify-between gap-1 text-white">
+      <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+        <span className="text-[13px] sm:text-2xl leading-[13px]">{days}</span> Өдөр
       </li>
-      <li>
-        <span>{hours}</span> Hrs
+      <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+        <span className="text-[13px] sm:text-2xl leading-[13px]">{hours}</span> Цаг
       </li>
-      <li>
-        <span>{minutes}</span> Min
+      <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+        <span className="text-[13px] sm:text-2xl leading-[13px]">{minutes}</span> Мин
       </li>
-      <li>
-        <span>{seconds}</span> Sec
+      <li className="w-full aspect-square text-center flex flex-col items-center justify-center text-[7px] sm:text-sm bg-primary rounded-lg">
+        <span className="text-[13px] sm:text-2xl leading-[13px]">{seconds}</span> Сэк
       </li>
     </ul>
   );

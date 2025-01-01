@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -11,12 +12,12 @@ const ResetButton = ({ shop_right = false,setPriceValues,maxPrice }) => {
   return (
     <div className="tp-shop-widget mb-50">
       <h3 className="tp-shop-widget-title">Тохиргоо</h3>
-      <button
+      <Button
         onClick={handleReset}
-        className="tp-btn"
+        className="bg-primary h-[50px] w-full"
       >
        Дахин тохируулах
-      </button>
+      </Button>
     </div>
   );
 };

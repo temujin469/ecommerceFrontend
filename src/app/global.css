@@ -3,16 +3,19 @@
 @tailwind utilities;
 @layer base {
   :root {
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
 }
 
-
 @layer components {
   .section-title {
-    @apply my-3 text-xl font-semibold text-gray-800; 
+    @apply my-3 text-xl font-semibold text-gray-800;
   }
   .container {
     @apply max-w-7xl self-center;
+  }
+
+  .product-grid {
+    @apply grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5;
   }
 }

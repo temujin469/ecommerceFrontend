@@ -28,13 +28,13 @@ const Wrapper = ({ children }) => {
 
   return !authChecked ? (
     <div
-      className="d-flex align-items-center justify-content-center"
+      className="flex justify-center items-center"
       style={{ height: "100vh" }}
     >
       <Loader spinner="fade" loading={!authChecked} />
     </div>
   ) : (
-    <div id="wrapper">
+    <div id="wrapper" className="overflow-hidden">
       {children}
       <BackToTopCom />
       <ToastContainer />

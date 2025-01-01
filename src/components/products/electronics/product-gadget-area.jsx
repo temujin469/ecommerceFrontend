@@ -35,7 +35,7 @@ const ProductGadgetArea = () => {
   if (!isLoading && !isError && products?.data?.length > 0) {
     const product_items = products.data.slice(0, 6);
     content = product_items.map((prd, i) => (
-      <div key={i} className="col-xl-4 col-sm-6">
+      <div key={i} className="col-span-1">
         <ProductItem product={prd} />
       </div>
     ))
@@ -76,12 +76,12 @@ const ProductGadgetArea = () => {
   }
   return (
     <>
-      <section className="tp-product-gadget-area pt-80 pb-75">
+      <section className="tp-product-gadget-area pb-10">
         <div className="container">
-          <div className="row">
-            <div className="col-xl-4 col-lg-5">
-              <div className="tp-product-gadget-sidebar mb-40">
-                <div className="tp-product-gadget-categories p-relative fix mb-10">
+          <div className="grid grid-cols-12 gap-5">
+            <div className="col-span-12 md:col-span-5 lg:col-span-5 xl:col-span-4">
+              <div className="tp-product-gadget-sidebar">
+                <div className="tp-product-gadget-categories p-relative fix mb-3">
                   <div className="tp-product-gadget-thumb">
                     <Image src={gadget_girl} alt="gadget_girl img" priority />
                   </div>
@@ -102,9 +102,9 @@ const ProductGadgetArea = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-8 col-lg-7">
+            <div className="col-span-12 md:col-span-7 lg:col-span-7 xl:col-span-8">
               <div className="tp-product-gadget-wrapper">
-                <div className="row">
+                <div className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
                   {content}
                 </div>
               </div>

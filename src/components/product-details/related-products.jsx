@@ -4,14 +4,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, Navigation,Autoplay } from "swiper/modules";
 // internal
 import { useGetRelatedProductsQuery } from "@/redux/features/productApi";
-import ProductItem from "../products/beauty/product-item";
 import ErrorMsg from "../common/error-msg";
 import { HomeNewArrivalPrdLoader } from "../loader";
+import ProductItem from "../products/electronics/product-item";
 
 // slider setting
 const slider_setting = {
   slidesPerView: 4,
-  spaceBetween: 24,
+  spaceBetween: 12,
   navigation: {
     nextEl: ".tp-related-slider-button-next",
     prevEl: ".tp-related-slider-button-prev",
@@ -33,7 +33,7 @@ const slider_setting = {
       slidesPerView: 2,
     },
     0: {
-      slidesPerView: 1,
+      slidesPerView: 2,
     },
   },
 };
@@ -62,7 +62,7 @@ const RelatedProducts = ({id}) => {
       >
         {product_items.map((item) => (
           <SwiperSlide key={item._id}>
-            <ProductItem product={item} primary_style={true} />
+            <ProductItem product={item} />
           </SwiperSlide>
         ))}
       </Swiper>

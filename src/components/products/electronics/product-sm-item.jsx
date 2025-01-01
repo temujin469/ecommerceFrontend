@@ -20,7 +20,7 @@ const ProductSmItem = ({ product }) => {
 
   return (
     <div className="tp-product-sm-item d-flex align-items-center">
-      <div className="tp-product-thumb mr-25 fix">
+      <div className="tp-product-thumb mr-3 fix">
         <Link href={`/product-details/${_id}`}>
           <Image
             src={img}
@@ -38,9 +38,9 @@ const ProductSmItem = ({ product }) => {
           <Link href={`/product-details/${_id}`}>{title}</Link>
         </h3>
         <div className="tp-product-rating d-sm-flex align-items-center">
-          <div className="tp-product-rating-icon">
+          {/* <div className="tp-product-rating-icon">
             <Rating allowFraction size={16} initialValue={ratingVal} readonly={true} />
-          </div>
+          </div> */}
           <div className="tp-product-rating-text">
           {/* ({reviews && reviews.length > 0 ? reviews.length : 0} Review) */}
           </div>

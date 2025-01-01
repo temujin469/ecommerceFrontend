@@ -63,7 +63,7 @@ const Header = () => {
       <header>
         <div className="tp-header-area p-relative z-index-11 shadow-sm">
           {/* header top start  */}
-          <div className="tp-header-top black-bg p-relative z-index-1 d-none d-md-block">
+          <div className="tp-header-top bg-primary relative z-[1] hidden md:block py-1">
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-6">
@@ -71,7 +71,7 @@ const Header = () => {
                     <span>
                       <ShippingCar />
                     </span>
-                    <p>Maнай дэлгүүр тавтай морил</p>
+                    <p className="text-black">Maнай дэлгүүр тавтай морил</p>
                   </div>
                 </div>
                 <div className="col-md-6">
@@ -107,7 +107,7 @@ const Header = () => {
           </div>
 
           {/* header bottom start */}
-          <div className="tp-header-bottom tp-header-bottom-border d-none d-lg-block">
+          <div className="tp-header-bottom tp-header-bottom-border hidden lg:block ">
             <div className="container">
               <div className="tp-mega-menu-wrapper p-relative">
                 <div className="row align-items-center">
@@ -116,7 +116,7 @@ const Header = () => {
                     <div className="tp-header-category tp-category-menu tp-header-category-toggle">
                       <button
                         onClick={() => setIsCategoryActive(!isCategoryActive)}
-                        className="tp-category-menu-btn tp-category-menu-toggle"
+                        className="tp-category-menu-btn tp-category-menu-toggle flex items-center font-semibold"
                       >
                         <span>
                           <CategoryMenu />
@@ -164,59 +164,55 @@ const Header = () => {
       {/* sticky header start */}
       <div
         id="header-sticky-2"
-        className={`tp-header-sticky-area ${sticky ? "header-sticky-2" : ""}`}
+        className={`tp-header-sticky-area overflow-hidden ${
+          sticky ? "header-sticky-2" : ""
+        }`}
       >
-        <div className="container">
-          <div className="tp-mega-menu-wrapper p-relative">
-            <div className="row align-items-center">
-              <div className="col-xl-3 col-lg-3 col-md-3 col-6">
-                <div className="logo">
-                  <Link href="/">
-                    <Image src={logo} alt="logo" />
+        <div className="container overflow-hidden">
+          <div className="tp-mega-menu-wrapper relative">
+            <div className="flex justify-between items-center">
+              <div className="logo">
+                <Link href="/">
+                  <Image src={logo} alt="logo" />
+                </Link>
+              </div>
+              <div className="tp-header-sticky-menu main-menu menu-style-1 d-none d-lg-block">
+                <nav id="mobile-menu">
+                  <Menus />
+                </nav>
+              </div>
+              <div className="tp-header-action d-flex align-items-center justify-content-end ml-50">
+                <div className="tp-header-action-item d-none d-lg-block">
+                  <Link href="/compare" className="tp-header-action-btn">
+                    <Compare />
                   </Link>
                 </div>
-              </div>
-              <div className="col-xl-6 col-lg-6 col-md-6 d-none d-md-block">
-                <div className="tp-header-sticky-menu main-menu menu-style-1 d-none d-lg-block">
-                  <nav id="mobile-menu">
-                    <Menus />
-                  </nav>
+                <div className="tp-header-action-item d-none d-lg-block">
+                  <Link href="/wishlist" className="tp-header-action-btn">
+                    <Wishlist />
+                    <span className="tp-header-action-badge">
+                      {wishlist.length}
+                    </span>
+                  </Link>
                 </div>
-              </div>
-              <div className="col-xl-3 col-lg-3 col-md-3 col-6">
-                <div className="tp-header-action d-flex align-items-center justify-content-end ml-50">
-                  <div className="tp-header-action-item d-none d-lg-block">
-                    <Link href="/compare" className="tp-header-action-btn">
-                      <Compare />
-                    </Link>
-                  </div>
-                  <div className="tp-header-action-item d-none d-lg-block">
-                    <Link href="/wishlist" className="tp-header-action-btn">
-                      <Wishlist />
-                      <span className="tp-header-action-badge">
-                        {wishlist.length}
-                      </span>
-                    </Link>
-                  </div>
-                  <div className="tp-header-action-item">
-                    <button
-                      onClick={() => dispatch(openCartMini())}
-                      type="button"
-                      className="tp-header-action-btn cartmini-open-btn"
-                    >
-                      <CartTwo />
-                      <span className="tp-header-action-badge">{quantity}</span>
-                    </button>
-                  </div>
-                  <div className="tp-header-action-item d-lg-none">
-                    <button
-                      onClick={() => setIsCanvasOpen(true)}
-                      type="button"
-                      className="tp-header-action-btn tp-offcanvas-open-btn"
-                    >
-                      <Menu />
-                    </button>
-                  </div>
+                <div className="tp-header-action-item">
+                  <button
+                    onClick={() => dispatch(openCartMini())}
+                    type="button"
+                    className="tp-header-action-btn cartmini-open-btn"
+                  >
+                    <CartTwo />
+                    <span className="tp-header-action-badge">{quantity}</span>
+                  </button>
+                </div>
+                <div className="tp-header-action-item d-lg-none">
+                  <button
+                    onClick={() => setIsCanvasOpen(true)}
+                    type="button"
+                    className="tp-header-action-btn tp-offcanvas-open-btn"
+                  >
+                    <Menu />
+                  </button>
                 </div>
               </div>
             </div>

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 // external
 import React, { useState } from "react";
 import { Navigation, Pagination, EffectFade } from "swiper/modules";
@@ -14,6 +14,7 @@ import shape_2 from "@assets/img/slider/shape/slider-shape-2.png";
 import shape_3 from "@assets/img/slider/shape/slider-shape-3.png";
 import shape_4 from "@assets/img/slider/shape/slider-shape-4.png";
 import { ArrowRightLong, SliderNextBtn, SliderPrevBtn, TextShape } from "@/svg";
+import { Button } from "../ui/button";
 
 // slider data
 const sliderData = [
@@ -57,25 +58,29 @@ const sliderData = [
 
 function Shape({ img, num }) {
   return (
-    <Image className={`tp-slider-shape-${num}`} src={img} alt="slider-shape" priority />
+    <Image
+      className={`tp-slider-shape-${num}`}
+      src={img}
+      alt="slider-shape"
+      priority
+    />
   );
 }
 
 const HomeHeroSlider = () => {
-  const [active,setActive] = useState(false);
+  const [active, setActive] = useState(false);
 
   // handleActiveIndex
   const handleActiveIndex = (index) => {
-    if(index === 2){
-      setActive(true)
+    if (index === 2) {
+      setActive(true);
+    } else {
+      setActive(false);
     }
-    else {
-      setActive(false)
-    }
-  }
+  };
   return (
     <>
-      <section className="tp-slider-area p-relative z-index-1">
+      <section className="tp-slider-area relative z-[1]">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -95,7 +100,7 @@ const HomeHeroSlider = () => {
           {sliderData.map((item) => (
             <SwiperSlide
               key={item.id}
-              className={`tp-slider-item tp-slider-height d-flex align-items-center ${
+              className={`tp-slider-item tp-slider-height flex items-center ${
                 item?.green_bg
                   ? "green-dark-bg"
                   : item?.is_light
@@ -110,9 +115,9 @@ const HomeHeroSlider = () => {
                 <Shape img={shape_3} num="3" />
                 <Shape img={shape_4} num="4" />
               </div>
-              <div className="container">
-                <div className="row align-items-center">
-                  <div className="col-xl-5 col-lg-6 col-md-6">
+              <div className="container h-full">
+                <div className="grid grid-cols-12 h-full">
+                  <div className="col-span-12 xl:col-span-5 lg:col-span-6 md:col-span-6">
                     <div className="tp-slider-content p-relative z-index-1">
                       {/* <span>
                         {item.pre_title.text} <b>{item.pre_title.text}₮</b>
@@ -120,22 +125,22 @@ const HomeHeroSlider = () => {
                       <h3 className="tp-slider-title">{item.title}</h3>
                       <p>
                         {item.subtitle.text_1}
-                        <span>
+                        <span className="text-primary">
                           -{item.subtitle.percent}%
                           <TextShape />
                         </span>{" "}
                         {item.subtitle.text_2}
                       </p>
 
-                      <div className="tp-slider-btn">
-                        <Link href="/shop" className="tp-btn tp-btn-2 tp-btn-white">
+                      <Button className="h-[50px] rounded-full px-6">
+                        <Link href="/shop">
                           Худалдан авалт хийх
-                          {" "} <ArrowRightLong />
                         </Link>
-                      </div>
+                        <ArrowRightLong />
+                      </Button>
                     </div>
                   </div>
-                  <div className="col-xl-7 col-lg-6 col-md-6">
+                  <div className="col-span-12 xl:col-span-7 lg:col-span-6 md:col-span-6">
                     <div className="tp-slider-thumb text-end">
                       <Image src={item.img} alt="slider-img" />
                     </div>
@@ -144,15 +149,15 @@ const HomeHeroSlider = () => {
               </div>
             </SwiperSlide>
           ))}
-          <div className="tp-slider-arrow tp-swiper-arrow">
-            <button type="button" className="tp-slider-button-prev">
+          <div className="tp-slider-arrow tp-swiper-arrow hidden sm:flex">
+            <button type="button" className="tp-slider-button-prev flex justify-center items-center bg-white text-gray-700">
               <SliderPrevBtn />
             </button>
-            <button type="button" className="tp-slider-button-next">
+            <button type="button" className="tp-slider-button-next flex justify-center items-center bg-white text-gray-700">
               <SliderNextBtn />
             </button>
           </div>
-          <div className="tp-slider-dot tp-swiper-dot"></div>
+          <div className="tp-slider-dot tp-swiper-dot pb-8"></div>
         </Swiper>
       </section>
     </>
