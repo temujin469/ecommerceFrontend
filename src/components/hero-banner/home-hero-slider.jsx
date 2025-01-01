@@ -102,7 +102,7 @@ const HomeHeroSlider = () => {
               key={item.id}
               className={`tp-slider-item tp-slider-height flex items-center ${
                 item?.green_bg
-                  ? "green-dark-bg"
+                  ? "bg-[#000]"
                   : item?.is_light
                   ? "is-light"
                   : ""

@@ -19,7 +19,7 @@ const instagram_data = [
 
 const InstagramArea = () => {
   return (
-    <div className="tp-instagram-area pb-70">
+    <div className="tp-instagram-area pb-10">
       <div className="container">
         <div className="grid gap-3 grid-cols-2 lg:grid-cols-5 md:grid-cols-3  sm:grid-cols-2">
           {instagram_data.map((item) => (

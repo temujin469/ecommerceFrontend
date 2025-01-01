@@ -23,6 +23,7 @@ import {
   AccordionTrigger,
 } from "../ui/accordion";
 import DetailsTabNav from "./details-tab-nav";
+import { Table, TableBody, TableCell, TableRow } from "../ui/table";
 
 const DetailsWrapper = ({
   productItem,
@@ -203,7 +204,7 @@ const DetailsWrapper = ({
           <Accordion type="single" collapsible>
             <AccordionItem
               value="item-1"
-              className="border-b-0 bg-[#FEF2F2] rounded-lg px-3 mb-3"
+              className="border-b-0 bg-[#f79f79] rounded-lg px-3 mb-3"
             >
               <AccordionTrigger>Тайлбар</AccordionTrigger>
               <AccordionContent>
@@ -211,19 +212,30 @@ const DetailsWrapper = ({
               </AccordionContent>
             </AccordionItem>
             <AccordionItem
-              value="item-2"
-              className="border-b-0 bg-[#F0F9FF] rounded-lg px-3 mb-3"
+              value="item-5"
+              className="border-b-0 bg-[#f7d08a] rounded-lg px-3 mb-3"
             >
               <AccordionTrigger>Мэдээлэл</AccordionTrigger>
-              <AccordionContent>{additionalInformation}</AccordionContent>
+              <AccordionContent>
+                <Table>
+                  <TableBody>
+                    {additionalInformation?.map((item, i) => (
+                      <TableRow key={i}>
+                        <TableCell>{item.key}</TableCell>
+                        <TableCell>{item.value}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </AccordionContent>
             </AccordionItem>
             <AccordionItem
               value="item-3"
-              className="border-b-0 bg-[#F0FDF4] rounded-lg px-3"
+              className="border-b-0 bg-[#e3f09b] rounded-lg px-3"
             >
               <AccordionTrigger>Хүргэлт</AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+              Хүргэлт үнэгүй
               </AccordionContent>
             </AccordionItem>
           </Accordion>

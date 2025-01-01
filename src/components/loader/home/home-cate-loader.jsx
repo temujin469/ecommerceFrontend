@@ -11,13 +11,13 @@ function SingleLoader({ loading }) {
 
 const HomeCateLoader = ({ loading }) => {
   return (
-    <>
+    <div className="flex">
       <SingleLoader loading={loading} />
       <SingleLoader loading={loading} />
       <SingleLoader loading={loading} />
-      <SingleLoader loading={loading} />
-      <SingleLoader loading={loading} />
-    </>
+      <SingleLoader className="hidden md:block" loading={loading} />
+      <SingleLoader className="hidden md:block" loading={loading} />
+    </div>
   );
 };
 

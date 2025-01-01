@@ -64,7 +64,7 @@ const handleCloseCartMini = () => {
               ))}
             </div>}
             {/* if no item in cart */}
-            {cart_products.length === 0 && <div className="cartmini__empty text-center">
+            {cart_products.length === 0 && <div className="cartmini__empty text-center mt-0 pt-10">
               <Image src={empty_cart_img} alt="empty-cart-img" />
               <p>Таны сагс хоосон байна</p>
               {/* <Link href="/shop" className="tp-btn">Буцах</Link> */}

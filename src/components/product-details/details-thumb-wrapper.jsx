@@ -22,8 +22,8 @@ const DetailsThumbWrapper = ({
             {imageURLs?.map((item, i) => (
               <button
                 key={i}
-                className={`nav-link relative w-[50px] h-[50px] lg:h-[100px] lg:w-[100px] aspect-square bg-white border hover:border-black border-gray-200 rounded-md ${
-                  item.img === activeImg ? "border-black" : ""
+                className={`nav-link relative w-[50px] h-[50px] lg:h-[100px] lg:w-[100px] aspect-square bg-white border hover:border-primary hover:bg-primary border-gray-200 rounded-md ${
+                  item.img === activeImg ? "border-primary bg-primary" : ""
                 }`}
                 onClick={() => handleImageActive(item)}
               >

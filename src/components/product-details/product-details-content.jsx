@@ -52,7 +52,7 @@ const ProductDetailsContent = ({ productItem }) => {
       </div>
 
       {/* related products start */}
-      <section className="py-3">
+      <section className="pt-3 pb-5">
         <div className="container">
           <h3 className="section-title">Төстэй бүтээгдэхүүн</h3>
           <div className="">

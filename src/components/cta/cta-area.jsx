@@ -1,12 +1,12 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 // internal
-import { AnimatedLine } from '@/svg';
-import shape_1 from '@assets/img/subscribe/subscribe-shape-1.png';
-import shape_2 from '@assets/img/subscribe/subscribe-shape-2.png';
-import shape_3 from '@assets/img/subscribe/subscribe-shape-3.png';
-import shape_4 from '@assets/img/subscribe/subscribe-shape-4.png';
-import plane from '@assets/img/subscribe/plane.png';
+import { AnimatedLine } from "@/svg";
+import shape_1 from "@assets/img/subscribe/subscribe-shape-1.png";
+import shape_2 from "@assets/img/subscribe/subscribe-shape-2.png";
+import shape_3 from "@assets/img/subscribe/subscribe-shape-3.png";
+import shape_4 from "@assets/img/subscribe/subscribe-shape-4.png";
+import plane from "@assets/img/subscribe/plane.png";
 
 function Shape({ img, num }) {
   return (
@@ -31,16 +31,17 @@ const CtaArea = () => {
         <div className="row align-items-center">
           <div className="col-xl-7 col-lg-7">
             <div className="tp-subscribe-content">
-              <span>Хямдралын мэдээлэл цаг алдалүй аваарай</span>
-              <h3 className="tp-subscribe-title">Манай дэлгүүрт бүртгүүлнэ үү</h3>
+              <h3 className="text-2xl font-semibold text-black">
+                Хямдралын мэдээлэл цаг алдалүй аваарай
+              </h3>
             </div>
           </div>
           <div className="col-xl-5 col-lg-5">
             <div className="tp-subscribe-form">
               <form action="#">
-                <div className="tp-subscribe-input">
-                  <input type="email" placeholder="Имэйл хаягаа оруулна уу" />
-                  <button type="submit">Бүртгүүлэх</button>
+                <div className="flex">
+                  <input type="email" className="rounded-l-lg outline-none border-none" placeholder="Имэйл хаягаа оруулна уу" />
+                  <button className="bg-black rounded-r-lg text-white px-3" type="submit">Бүртгүүлэх</button>
                 </div>
               </form>
             </div>

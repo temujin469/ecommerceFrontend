@@ -34,7 +34,7 @@ const DetailsTabNav = ({ product }) => {
     <>
       <div className="">
         <Tabs defaultValue="Мэдээлэл" className="max-w-[700px] mx-auto">
-          <TabsList className="bg-[#FFFBEB]">
+          <TabsList className="bg-[#aef78e]">
             <TabsTrigger value="Мэдээлэл">Мэдээлэл</TabsTrigger>
             <TabsTrigger value="Үнэлгээ">Үнэлгээ</TabsTrigger>
             <TabsTrigger value="Тайлбар">Тайлбар</TabsTrigger>

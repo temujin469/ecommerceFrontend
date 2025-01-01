@@ -99,7 +99,7 @@ const ProductItem = ({ product, offer_style = false }) => {
                 <button
                   onClick={() => handleAddProduct(product)}
                   type="button"
-                  className={`tp-product-action-btn ${
+                  className={`tp-product-action-btn flex items-center justify-center ${
                     isAddedToCart ? "active" : ""
                   } tp-product-add-cart-btn`}
                   disabled={status === "out-of-stock"}
@@ -112,7 +112,7 @@ const ProductItem = ({ product, offer_style = false }) => {
               <button
                 onClick={() => dispatch(handleProductModal(product))}
                 type="button"
-                className="tp-product-action-btn tp-product-quick-view-btn"
+                className="tp-product-action-btn tp-product-quick-view-btn flex items-center justify-center"
               >
                 <QuickView />
 
@@ -120,7 +120,7 @@ const ProductItem = ({ product, offer_style = false }) => {
               </button>
               <button
                 type="button"
-                className={`tp-product-action-btn ${
+                className={`tp-product-action-btn flex items-center justify-center ${
                   isAddedToWishlist ? "active" : ""
                 } tp-product-add-to-wishlist-btn`}
                 onClick={() => handleWishlistProduct(product)}
