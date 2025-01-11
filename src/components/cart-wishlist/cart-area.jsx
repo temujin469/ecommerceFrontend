@@ -8,6 +8,7 @@ import CartCheckout from './cart-checkout';
 import CartItem from './cart-item';
 import RenderCartProgress from '../common/render-cart-progress';
 import MobileNav from '../common/mobile-navbar';
+import Image from 'next/image';
 
 const CartArea = () => {
   const { cart_products } = useSelector((state) => state.cart);
@@ -17,9 +18,10 @@ const CartArea = () => {
       <section className="tp-cart-area pb-120">
         <div className="container">
           {cart_products.length === 0 &&
-            <div className='text-center pt-50'>
-              <h3>Сагсанд бүтээгдэхүүн алга</h3>
-              <Link href="/shop" className="tp-cart-checkout-btn mt-20">Дэлгүүр буцах</Link>
+            <div className='text-center pt-50 flex flex-col items-center'>
+              <Image width={300} height={300} src={"/assets/img/cart/emptycart.png"}/>
+              <h3 className='text-lg text-gray-400'>Сагсанд бүтээгдэхүүн алга</h3>
+              <Link href="/shop" className="tp-cart-checkout-btn mt-10 rounded-full">Дэлгүүр буцах</Link>
             </div>
           }
           {cart_products.length > 0 &&

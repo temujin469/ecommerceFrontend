@@ -11,6 +11,8 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
+import AddReviewPopup from "./addReviewPopup";
+import Image from "next/image";
 
 const DetailsTabNav = ({ product }) => {
   const { _id, description, additionalInformation, reviews } = product || {};
@@ -50,12 +52,19 @@ const DetailsTabNav = ({ product }) => {
             value="Үнэлгээ"
           >
             {/* reviews */}
-            <div className="tp-product-details-review-list pr-110">
-              <h3 className="tp-product-details-review-title">Үнэлгээ</h3>
+            <div className="tp-product-details-review-list">
               {reviews.length === 0 && (
-                <h3 className="tp-product-details-review-title">
-                  Одоогоор үнэлгээ байхгүй байна.
-                </h3>
+                <div className="flex flex-col items-center">
+                  <Image
+                    className="mx-auto object-contain"
+                    src={"/assets/img/product/emptyreview.png"}
+                    width={200}
+                    height={200}
+                  />
+                  <h4 className="text-gray-300">
+                    Одоогоор үнэлгээ байхгүй байна.
+                  </h4>
+                </div>
               )}
               {reviews.length > 0 &&
                 reviews.map((item) => (
@@ -63,50 +72,23 @@ const DetailsTabNav = ({ product }) => {
                 ))}
             </div>
             <div>
-              <div
-                className="tab-pane fade"
-                id="nav-review"
-                role="tabpanel"
-                aria-labelledby="nav-review-tab"
-                tabIndex="-1"
-              >
-                <div className="tp-product-details-review-wrapper pt-60">
-                  <div className="row">
-                    <div className="col-lg-6">
-                      <div className="tp-product-details-review-statics">
-                        {/* reviews */}
-                        <div className="tp-product-details-review-list pr-110">
-                          <h3 className="tp-product-details-review-title">
-                            Үнэлгээ
-                          </h3>
-                          {reviews.length === 0 && (
-                            <h3 className="tp-product-details-review-title">
-                              Одоогоор үнэлгээ байхгүй байна.
-                            </h3>
-                          )}
-                          {reviews.length > 0 &&
-                            reviews.map((item) => (
-                              <ReviewItem key={item._id} review={item} />
-                            ))}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-lg-6">
-                      <div className="tp-product-details-review-form">
-                        <h3 className="tp-product-details-review-form-title">
-                          Үнэлгээ өгөх
-                        </h3>
-                        <p>Таны имэйл хаягийг нийтлэхгүй.</p>
-                        {/* form start */}
-                        <ReviewForm product_id={_id} />
-                        {/* form end */}
-                      </div>
+              <div>
+                <div className="tp-product-details-review-wrapper">
+                  <div className="">
+                    <div className="tp-product-details-review-form">
+                      <h3 className="tp-product-details-review-form-title">
+                        Үнэлгээ өгөх
+                      </h3>
+                      <p>Таны имэйл хаягийг нийтлэхгүй.</p>
+                      {/* form start */}
+                      <ReviewForm product_id={_id} />
+                      {/* form end */}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            {/* <AddReviewPopup/> */}
           </TabsContent>
           <TabsContent
             className="border border-gray-200 rounded-lg p-3"

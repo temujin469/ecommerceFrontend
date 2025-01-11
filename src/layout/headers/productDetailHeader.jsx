@@ -23,7 +23,7 @@ import {
 import useSearchFormSubmit from "@/hooks/use-search-form-submit";
 import OffCanvas from "@/components/common/off-canvas";
 
-const HeaderTwo = ({ style_2 = false }) => {
+const ProductDetailHeader = () => {
   const { wishlist } = useSelector((state) => state.wishlist);
   const [isOffCanvasOpen, setIsCanvasOpen] = useState(false);
   const { setSearchText, handleSubmit, searchText } = useSearchFormSubmit();
@@ -34,9 +34,7 @@ const HeaderTwo = ({ style_2 = false }) => {
     <>
       <header>
         <div
-          className={`tp-header-area tp-header-style-${
-            style_2 ? "primary" : "darkRed"
-          } tp-header-height`}
+          className={`tp-header-area tp-header-style-primary tp-header-height`}
         >
           {/* <div className="tp-header-top-2 p-relative z-index-11 tp-header-top-border d-none d-md-block">
             <div className="container">
@@ -161,4 +159,4 @@ const HeaderTwo = ({ style_2 = false }) => {
   );
 };
 
-export default HeaderTwo;
+export default ProductDetailHeader;

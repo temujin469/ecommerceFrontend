@@ -19,7 +19,7 @@ const ShopTopRight = ({ selectHandleFilter }) => {
       <div className="w-full">
         <Select onOpenChange={selectHandleFilter} defaultCurrent={0}>
           <SelectTrigger className="min-w-[130px] h-[50px] outline-none">
-            <SelectValue placeholder="Theme" />
+            <SelectValue placeholder="Эрэмблэх" />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="efault Sorting">Үндсэн эрэмбэлэлт</SelectItem>
