@@ -11,7 +11,6 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import AddReviewPopup from "./addReviewPopup";
 import Image from "next/image";
 
 const DetailsTabNav = ({ product }) => {

@@ -1,6 +1,6 @@
 import Wrapper from "@/layout/wrapper";
+import HeaderTwo from "@/layout/headers/header-2";
 import ProductDetailsArea from "@/components/product-details/product-details-area";
-import ProductDetailHeader from "@/layout/headers/productDetailHeader";
 
 export const metadata = {
   title: "Бүтээгдэхүүн",
@@ -9,7 +9,7 @@ export const metadata = {
 export default function ProductDetailsPage({ params }) {
   return (
     <Wrapper>
-      <ProductDetailHeader/>
+      <HeaderTwo style_2={true} />
       <ProductDetailsArea id={params.id} />
     </Wrapper>
   );

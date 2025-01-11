@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-import ReactStars from "react-rating-stars-component";
+// import ReactStars from "react-rating-stars-component";
 import * as Yup from "yup";
 // internal
 import ErrorMsg from "../common/error-msg";
@@ -64,7 +64,7 @@ const ReviewForm = ({ product_id }) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="d-flex align-items-center gap-3 mb-6">
-        <ReactStars
+        {/* <ReactStars
           onClick={handleRating}
           count={5}
           emptyIcon={<MdStars/>}
@@ -72,7 +72,7 @@ const ReviewForm = ({ product_id }) => {
           isHalf={false}
           size={40}
           value={rating}
-        />
+        /> */}
       </div>
       <div className="tp-product-details-review-input-wrapper">
         <div className="tp-product-details-review-input-box">
