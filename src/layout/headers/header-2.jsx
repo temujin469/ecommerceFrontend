@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 // internal
 import Menus from "./header-com/menus";
-import logo from "@assets/img/logo/logo.svg";
+import logo from "@assets/img/logo/logo2.png";
 import useSticky from "@/hooks/use-sticky";
 import useCartInfo from "@/hooks/use-cart-info";
 import { openCartMini } from "@/redux/features/cartSlice";
@@ -78,8 +78,9 @@ const HeaderTwo = ({ style_2 = false }) => {
               <div className="tp-mega-menu-wrapper relative">
                 <div className="flex items-center justify-between">
                   <div className="logo">
-                    <Link href="/">
-                      <Image src={logo} alt="logo" priority />
+                  <Link href="/" className="flex gap-2 justify-center items-center font-bold text-primary text-3xl">
+                      <Image src={logo} alt="logo" width={40} height={40} />
+                      Attila
                     </Link>
                   </div>
                   <div className="d-none d-xl-block">
