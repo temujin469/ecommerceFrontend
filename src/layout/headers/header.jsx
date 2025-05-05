@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 // internal
 import Menus from "./header-com/menus";
 import useSticky from "@/hooks/use-sticky";
-import logo from "@assets/img/logo/logo.svg";
+import logo from "@assets/img/logo/logo2.png";
 import useCartInfo from "@/hooks/use-cart-info";
 import OffCanvas from "@/components/common/off-canvas";
 import { openCartMini } from "@/redux/features/cartSlice";
@@ -89,8 +89,9 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-xl-2 col-lg-2 col-md-4 col-6">
                   <div className="logo">
-                    <Link href="/">
-                      <Image src={logo} alt="logo" />
+                    <Link href="/" className="flex gap-2 justify-center items-center font-bold text-primary text-3xl">
+                      <Image src={logo} alt="logo" width={50} height={50} />
+                      Attila
                     </Link>
                   </div>
                 </div>
@@ -172,9 +173,10 @@ const Header = () => {
           <div className="tp-mega-menu-wrapper relative">
             <div className="flex justify-between items-center">
               <div className="logo">
-                <Link href="/">
-                  <Image src={logo} alt="logo" />
-                </Link>
+              <Link href="/" className="flex gap-2 justify-center items-center font-bold text-primary text-3xl">
+                      <Image src={logo} alt="logo" width={40} height={40} />
+                      Attila
+                    </Link>
               </div>
               <div className="tp-header-sticky-menu main-menu menu-style-1 d-none d-lg-block">
                 <nav id="mobile-menu">
